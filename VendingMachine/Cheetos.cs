@@ -4,14 +4,14 @@ using System.Text;
 
 namespace VendingMachine
 {
-    public class KitKat : IProduct
+    class Cheetos :IProduct
     {
         public string Name { get; set; }
         public double Price { get; set; }
         public double Quantity { get; set; }
         public int ProductCode { get; set; }
 
-        public KitKat(string name, double price, double quantity, int code)
+        public Cheetos(string name, double price, double quantity, int code)
         {
             Name = name;
             Price = price;

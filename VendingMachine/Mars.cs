@@ -4,14 +4,14 @@ using System.Text;
 
 namespace VendingMachine
 {
-    public class KitKat : IProduct
+    class Mars : IProduct
     {
         public string Name { get; set; }
         public double Price { get; set; }
         public double Quantity { get; set; }
         public int ProductCode { get; set; }
 
-        public KitKat(string name, double price, double quantity, int code)
+        public Mars(string name, double price, double quantity, int code)
         {
             Name = name;
             Price = price;
@@ -21,7 +21,7 @@ namespace VendingMachine
 
         public override string ToString()
         {
-            return string.Format($"       {Name:15}       {Quantity}g         {Price:C2}           {ProductCode:00}\n");
+            return string.Format($"       {Name:15}          {Quantity}g         {Price:C2}           {ProductCode:00}\n");
         }
     }
 }

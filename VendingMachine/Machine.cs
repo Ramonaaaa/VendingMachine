@@ -19,6 +19,9 @@ namespace VendingMachine
             products.Add(new Coke("Coke", 1.5, 0.5, 1), 1);
             products.Add(new Pepsi("Pepsi", 1, 0.35, 2), 15);
             products.Add(new KitKat("Kit-Kat", 0.5, 65, 3), 18);
+            products.Add(new Twix("Twix", 0.85, 65, 4), 24);
+            products.Add(new Cheetos("Cheetos", 1.08, 50, 5), 3);
+            products.Add(new Mars("Mars", 2, 80, 6), 14);
 
         }
 
@@ -44,13 +47,14 @@ namespace VendingMachine
             IProduct selectedProduct = null;
             do
             {
-                Console.WriteLine($"    Product    Quantity Price Tasta");
+                Console.WriteLine($"      Product      Quantity      Price      Product Code \n");  
                 foreach (var product in products)
                 {
                     Console.WriteLine(product.Key.ToString());
+                 
                 }
 
-                Console.WriteLine("\nPlease select an option:");
+                Console.WriteLine("\nPlease select the code for your product:");
                 int.TryParse(Console.ReadLine(), out selectionCode);
 
                 foreach (var item in products.Keys)
@@ -61,7 +65,7 @@ namespace VendingMachine
                     }
                 }
             }
-            while (selectedProduct == null); //atata timp cat utilizatorul nu a introdus o tasta valide, se repeta procedeul
+            while (selectedProduct == null); //atata timp cat utilizatorul nu a introdus un cod valid, se repeta procedeul
             return selectedProduct;
         }
 
@@ -88,12 +92,13 @@ namespace VendingMachine
 
             if (currentAmount > selectedProduct.Price)
             {
-                Console.WriteLine($"Don't forget to take your change: {currentAmount - selectedProduct.Price:C2}!");
+                Console.WriteLine($"Don't forget to take your change: {currentAmount - selectedProduct.Price:C2}");
             }
 
             products[selectedProduct]--;
 
-            if (products[selectedProduct] == 0) //sterg produsul din lista initiala in cazul in care am luat ultimul produs
+            //sterg produsul din lista initiala in cazul in care am cumparat ultimul produs
+            if (products[selectedProduct] == 0) 
             {
                 products.Remove(selectedProduct);
             }

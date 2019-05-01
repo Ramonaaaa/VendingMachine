@@ -21,7 +21,7 @@ namespace VendingMachine
 
         public override string ToString()
         {
-            return string.Format($"{Name:15} {Quantity}L {Price:C2} {ProductCode:00}");
+            return string.Format($"       {Name:15}         {Quantity}L       {Price:C2}           {ProductCode:00}\n");
         }
     }
 }
